@@ -74,7 +74,7 @@ export class PersistenceDoc {
       this.mux(() => {
         this.doc.transact(() => {
           updates.forEach(update => {
-            Y.applyUpdate(this.doc, update)
+            Y.applyUpdate(this.doc, update, this)
           })
           const nextClock = startClock + updates.length
           if (this._clock < nextClock) {
